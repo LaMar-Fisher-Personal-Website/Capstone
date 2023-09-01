@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import './style.css'; // Import my CSS file
 
-function ProductList() {
+function ProductList({ addToCart }) { // Ensure the addToCart prop is received
     const [products, setProducts] = useState([]);
     const [searchKeyword, setSearchKeyword] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [sortingOption, setSortingOption] = useState('');
-  
+
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(error => console.error('Error fetching data:', error));
     }, []);
-    
+
     return (
         <div>
             <h1>Product List</h1>
@@ -63,6 +64,7 @@ function ProductList() {
                             <h2>{product.title}</h2>
                             <p>{product.description}</p>
                             <p>Price: ${product.price}</p>
+                            <button onClick={() => addToCart(product)}>Add to Cart</button>
                             <img src={product.image} alt={product.title} style={{ maxWidth: '100px' }} />
                         </li>
                     ))}

@@ -1,8 +1,6 @@
 import React from 'react';
-
 function ShopCart({ cartItems, setCartItems }) {
     // ...
-
     const handleIncrementQuantity = (itemId) => {
         // Find the item in the cart and increment its quantity
         const updatedCart = cartItems.map(item =>
@@ -11,7 +9,7 @@ function ShopCart({ cartItems, setCartItems }) {
         setCartItems(updatedCart);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
     };
-    
+
 
     const handleDecrementQuantity = (itemId) => {
         // Find the item in the cart and decrement its quantity
@@ -36,7 +34,7 @@ function ShopCart({ cartItems, setCartItems }) {
         setCartItems(updatedCart);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
     };
-    
+
 
       // Calculate total price
       const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -45,6 +43,15 @@ function ShopCart({ cartItems, setCartItems }) {
         <div>
             <h2>Your Shopping Cart</h2>
             <ul>
+                {cartItems.map(item => (
+                    <li key={item.id}>
+                        {item.title} - Quantity: {item.quantity} - Price: ${item.price * item.quantity}
+                        {item.title} - Quantity: {item.quantity} - Price: ${item.price * item.quantity}
+                        <button onClick={() => handleIncrementQuantity(item.id)}>+</button>
+                        <button onClick={() => handleDecrementQuantity(item.id)}>-</button>
+                        <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
+                    </li>
+                ))}
             {cartItems.map(item => (
     <li key={item.id}>
         {item.title} - Quantity:
@@ -63,8 +70,6 @@ function ShopCart({ cartItems, setCartItems }) {
             </ul>
             <p>Total Price: ${totalPrice}</p>
         </div>
-    );
-}
-
-
-export default ShopCart;
+            );
+        }
+        export default ShopCart; 
