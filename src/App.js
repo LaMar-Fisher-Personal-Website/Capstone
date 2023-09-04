@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes, navigate } from 'react-router-dom';
 import ProductList from './ProductList';
 import ShopCart from './ShopCart';
 import Login from './Login'; // Create a Login component
@@ -82,7 +82,7 @@ function App() {
                     // Inside the App component
 <Route path="/checkout" element={<CheckoutPage cartItems={cartItems} setCartItems={setCartItems} />} />
 
-                    <Route path="/login" element={<Login onLogin={handleLogin} />} />
+                    <Route path="/login" element={<Login onLogin={handleLogin} navigate={navigate} />} />
                     <Route path="/" element={(
                         <div>
                             <h1>Welcome, FullStack Future Grads!</h1>

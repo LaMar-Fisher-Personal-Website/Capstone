@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import styles from './Login.module.css'; // Import the CSS module
 
 function Login({ onLogin }) {
@@ -19,6 +20,8 @@ function Login({ onLogin }) {
 
         if (token === 'fakeToken123') {
             onLogin(token); // Call the onLogin callback with the token
+                    // Navigate to the Home page (ProductList.js)
+             navigate('/product-list');       
         } else {
             setErrorMessage('Invalid token. Please try again.');
         }
@@ -34,10 +37,11 @@ function Login({ onLogin }) {
                         <div className={styles.inputBox}>
                             <input
                                 type="text"
+                                id="fakeToken123"
                                 required
                                 value={token}
                                 onChange={handleTokenChange}
-                                placeholder="Enter token"
+                                placeholder="Enter token blow to login"
                             />
                         </div>
                         <div className={styles.instructions}>
