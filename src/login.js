@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css'; // Import the CSS module
 
 function Login({ onLogin }) {
     const [token, setToken] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+
+    const navigate = useNavigate();
 
     const handleTokenChange = (event) => {
         setToken(event.target.value);
@@ -13,6 +15,8 @@ function Login({ onLogin }) {
 
     const handleSubmit = (event) => {
         event.preventDefault(); // Prevent default form submission
+
+        
 
         // Here, you would typically make an API request to validate the token
         // and perform the login. For the sake of example, let's just validate
@@ -41,7 +45,7 @@ function Login({ onLogin }) {
                                 required
                                 value={token}
                                 onChange={handleTokenChange}
-                                placeholder="Enter token blow to login"
+                                placeholder="Enter token below to login"
                             />
                         </div>
                         <div className={styles.instructions}>
