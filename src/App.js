@@ -94,14 +94,15 @@ function App() {
   <Route path="/checkout" element={<CheckoutPage cartItems={cartItems} setCartItems={setCartItems} />} />
   <Route path="/login" element={<Login onLogin={handleLogin} navigate={Navigate} />} />
   <Route path="/" element={<div>
-      <h1>Welcome, FullStack Future Grads!</h1>
+      <h1>Welcome, K.I.S.S.E.S</h1>
+      <div>Keep It Simple Stud E-commerce Shopping</div>
       <ProductList addToCart={addToCart} user={user} /> {/* Pass the user prop */}
       <ShopCart cartItems={cartItems} setCartItems={setCartItems} />
       {showCheckout ? (
         <div>
-          <Checkout cartItems={cartItems} setCartItems={setCartItems} />
-          <button onClick={() => setShowCheckout(false)}>Back to Cart</button>
-        </div>
+        <Checkout cartItems={cartItems} setCartItems={setCartItems} />
+        <Link to="/cart" className="button-link">Get Shipping Cost</Link>
+    </div>
       ) : (
         <button onClick={() => setShowCheckout(true)}>Proceed to Checkout</button>
       )}
