@@ -7,6 +7,7 @@ import Checkout from './Checkout'; // Import the Checkout component
 import CartPage from './CartPage'; // New component for shopping cart page
 import CheckoutPage from './CheckoutPage'; // New component for checkout page
 import LogoutButton from './LogoutButton'; // Lost logout button after fix Login redirect, I hate React.
+import OrderConfirmation from './OrderConfirmation'; // Import the OrderConfirmation component
 import './style.css';
 
 function App() {
@@ -119,6 +120,7 @@ function App() {
   <Route path="/cart" element={<CartPage cartItems={cartItems} setCartItems={setCartItems} />} />
   <Route path="/checkout" element={<CheckoutPage cartItems={cartItems} setCartItems={setCartItems} />} />
   <Route path="/login" element={<Login onLogin={handleLogin} navigate={Navigate} />} />
+  <Route path="/order-confirmation" element={<OrderConfirmation />} />
   <Route path="/" element={<div>
     <div style={containerStyle}>
       <h1 style={{ ...gradientTextStyle, ...h1Style }}>Welcome to K.I.S.S.E.S</h1>

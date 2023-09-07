@@ -13,7 +13,10 @@ function ProductList({ addToCart, user }) { // Ensure the addToCart prop is rece
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
             .then(response => response.json())
-            .then(data => setProducts(data))
+            .then(data => {
+            console.log('Fetched data:', data); // Log the fetched data
+            setProducts(data);
+        })
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
@@ -40,7 +43,6 @@ function ProductList({ addToCart, user }) { // Ensure the addToCart prop is rece
                 <select value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)}>
                     <option value="all">All Categories</option>
                     <option value="electronics">Electronics</option>
-                    <option value="clothing">Clothing</option>
                     <option value="jewelery">Jewelery</option>
                     <option value="men's clothing">Men's Clothing</option>
                     <option value="women's clothing">Women's Clothing</option>

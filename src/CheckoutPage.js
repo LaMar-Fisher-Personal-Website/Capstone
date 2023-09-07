@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.css'; // Import your CSS file
 
 function CheckoutPage({ cartItems, setCartItems }) {
@@ -16,14 +17,16 @@ function CheckoutPage({ cartItems, setCartItems }) {
 
     const handleCheckout = () => {
         if (name && address) {
-            setConfirmationMessage('Thank you for your business! Your items are being prepared for shipping.');
             setErrorMessage('');
             setCartItems([]); // Clear the cart items
+            navigate('/order-confirmation'); // Redirect to the confirmation page
         } else {
             setErrorMessage('Please confirm that the name and shipping address are correct.');
             setConfirmationMessage('');
         }
     };
+
+    const navigate = useNavigate(); // Get the navigate function
     
 
     return (
