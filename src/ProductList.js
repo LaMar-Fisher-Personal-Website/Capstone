@@ -17,6 +17,14 @@ function ProductList({ addToCart, user }) { // Ensure the addToCart prop is rece
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
+    function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth', // For smooth scrolling animation
+        });
+      }
+      
+
     return (
         <div>
             <h1>Product List</h1>
@@ -79,6 +87,10 @@ function ProductList({ addToCart, user }) { // Ensure the addToCart prop is rece
                         </li>
                     ))}
             </ul>
+             {/* "Top" button */}
+      <div className="top-button-container">
+        <button onClick={scrollToTop}>Top</button>
+      </div>
         </div>
     );
 }

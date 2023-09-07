@@ -240,6 +240,28 @@
   .container.right-panel-active .overlay-right {
     transform: translateX(20%);
   }
+
+  /* Add this to your CSS file or component-specific CSS */
+
+.top-button-container {
+  text-align: center;
+  margin-top: 20px; /* Adjust as needed */
+}
+
+button {
+  background-color: #007bff; /* Change to your preferred color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3; /* Change to a slightly darker shade on hover */
+}
+
+
   
  
   footer {
