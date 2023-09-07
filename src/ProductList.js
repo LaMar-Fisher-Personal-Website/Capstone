@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.css'; // Import my CSS file
 
 function ProductList({ addToCart, user }) { // Ensure the addToCart prop is received
@@ -6,6 +7,8 @@ function ProductList({ addToCart, user }) { // Ensure the addToCart prop is rece
     const [searchKeyword, setSearchKeyword] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [sortingOption, setSortingOption] = useState('');
+
+  
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -42,6 +45,9 @@ function ProductList({ addToCart, user }) { // Ensure the addToCart prop is rece
                     <option value="desc">Price: High to Low</option>
                 </select>
             </div>
+            <div>
+  
+    </div>
             <ul>
                 {products
                     .filter(product =>
