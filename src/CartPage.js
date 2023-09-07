@@ -14,7 +14,7 @@ function CartPage({ cartItems, setCartItems }) {
     };
 
     const calculateTotalPrice = () => {
-        const shippingCost = zipCode ? 26.99 : 0;
+        const shippingCost = zipCode ? 16.99 : 0;
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0) + shippingCost;
     };
 
