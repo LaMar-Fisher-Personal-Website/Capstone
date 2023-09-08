@@ -54,7 +54,8 @@ function CartPage({ cartItems, setCartItems }) {
             </div>
             <p>Total Price: ${calculateTotalPrice().toFixed(2)}</p>
             <button onClick={handleEmptyCart}>Empty Cart</button>
-            <Link to="/checkout">Proceed to Checkout</Link>
+            <Link to="/checkout" className="button-link">Proceed to Checkout</Link>
+            <Link to="/" className="button-link">Back to Product List</Link>
         </div>
     );
 }

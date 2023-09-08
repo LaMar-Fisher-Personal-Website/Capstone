@@ -7,6 +7,7 @@ import Checkout from './Checkout'; // Import the Checkout component
 import CartPage from './CartPage'; // New component for shopping cart page
 import CheckoutPage from './CheckoutPage'; // New component for checkout page
 import LogoutButton from './LogoutButton'; // Lost logout button after fix Login redirect, I hate React.
+import OrderConfirmation from './OrderConfirmation'; // Import the OrderConfirmation component
 import './style.css';
 
 function App() {
@@ -14,6 +15,32 @@ function App() {
     const [cartItems, setCartItems] = useState([]);
     const [showCheckout, setShowCheckout] = useState(false);
     const [user, setUser] = useState(null);
+    const containerStyle = {
+      backgroundColor: '#a2cffe', // Background color of the container
+      width: 'calc(100% + 4px)', // 2px wider than the font
+      padding: '20px', // Add some padding for spacing
+    };
+  
+    const gradientTextStyle = {
+      background: 'linear-gradient(to right, #002800, gold)', // Gradient background
+      WebkitBackgroundClip: 'text', // Clip the text to the background
+      color: 'transparent', // Make the text transparent
+      display: 'inline-block', // Display as inline-block to fit content
+      padding: '5px', // Add padding to separate text from edges
+    };  
+
+    const h1Style = {
+      fontSize: '36px', // Adjust the font size for the h1 element
+    };
+    
+    const divStyle = {
+      fontSize: '24px', // Adjust the font size for the div element
+    };
+
+    
+    
+
+
 
     useEffect(() => {
         const storedCart = localStorage.getItem('cart');
@@ -93,15 +120,19 @@ function App() {
   <Route path="/cart" element={<CartPage cartItems={cartItems} setCartItems={setCartItems} />} />
   <Route path="/checkout" element={<CheckoutPage cartItems={cartItems} setCartItems={setCartItems} />} />
   <Route path="/login" element={<Login onLogin={handleLogin} navigate={Navigate} />} />
+  <Route path="/order-confirmation" element={<OrderConfirmation />} />
   <Route path="/" element={<div>
-      <h1>Welcome, FullStack Future Grads!</h1>
+    <div style={containerStyle}>
+      <h1 style={{ ...gradientTextStyle, ...h1Style }}>Welcome to K.I.S.S.E.S</h1>
+      <div style={{ ...gradientTextStyle, ...divStyle }}>A Keeping It Simple Stud E-commerce Shopping Experience</div>
+    </div>
       <ProductList addToCart={addToCart} user={user} /> {/* Pass the user prop */}
       <ShopCart cartItems={cartItems} setCartItems={setCartItems} />
       {showCheckout ? (
         <div>
-          <Checkout cartItems={cartItems} setCartItems={setCartItems} />
-          <button onClick={() => setShowCheckout(false)}>Back to Cart</button>
-        </div>
+        <Checkout cartItems={cartItems} setCartItems={setCartItems} />
+        <Link to="/cart" className="button-link">Get Shipping Cost</Link>
+    </div>
       ) : (
         <button onClick={() => setShowCheckout(true)}>Proceed to Checkout</button>
       )}

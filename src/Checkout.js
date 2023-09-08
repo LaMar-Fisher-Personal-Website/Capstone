@@ -15,10 +15,21 @@ function Checkout({ cartItems, setCartItems, handleEditQuantity,
         navigate('/checkoutpage'); // Replace with the actual path to your CheckoutPage component
     };
 
+     // Calculate total price
+     const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
     return (
         <div>
-            <h2>Checkout Not Available</h2>
+            <h2>Ready to Checkout?</h2>
             <ul>
+                {cartItems.map(item => (
+                    <li key={item.id}>
+                        {item.title} - Quantity: {item.quantity} - Price: ${item.price * item.quantity}
+                        <button onClick={() => handleIncrementQuantity(item.id)}>+</button>
+                        <button onClick={() => handleDecrementQuantity(item.id)}>-</button>
+                        <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
+                    </li>
+                ))}
                 {cartItems.map(item => (
                     <li key={item.id}>
                         {item.title} - Quantity:
@@ -34,9 +45,8 @@ function Checkout({ cartItems, setCartItems, handleEditQuantity,
                     </li>
                 ))}
             </ul>
+            <p>Total Price: ${totalPrice}</p>
             <button onClick={goToCheckoutPage}>Go to Checkout Page</button>
-            {/* Additional input fields for shipping and payment info */}
-            {/* "Confirm Purchase" button */}
         </div>
     );
 }
