@@ -67,7 +67,7 @@ function App() {
             }
         } else {
             // Display a message or handle the case when a non-logged-in user tries to add to cart
-            alert('Please log in to add items to your cart.');
+            alert('To add items to your cart, login.');
         }
     };
 
@@ -124,7 +124,7 @@ function App() {
   <Route path="/" element={<div>
     <div style={containerStyle}>
       <h1 style={{ ...gradientTextStyle, ...h1Style }}>Welcome to K.I.S.S.E.S</h1>
-      <div style={{ ...gradientTextStyle, ...divStyle }}>A Keeping It Simple Stud E-commerce Shopping Experience</div>
+      <div style={{ ...gradientTextStyle, ...divStyle }}>A Keeping It Simple Stud E-commerce Shopping experience</div>
     </div>
       <ProductList addToCart={addToCart} user={user} /> {/* Pass the user prop */}
       <ShopCart cartItems={cartItems} setCartItems={setCartItems} />

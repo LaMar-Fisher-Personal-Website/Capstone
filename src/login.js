@@ -36,7 +36,7 @@ function Login({ onLogin }) {
             <span></span>
             <div className={`${styles.signin} ${styles.loginContainer}`}>
                 <div className={styles.content}>
-                    <h2>Login In</h2>
+                    <h2>K.I.S.S.E.S</h2>
                     <div className={styles.form}>
                         <div className={styles.inputBox}>
                             <input
@@ -45,7 +45,7 @@ function Login({ onLogin }) {
                                 required
                                 value={token}
                                 onChange={handleTokenChange}
-                                placeholder="Enter token below to login"
+                                placeholder="Enter password below..."
                             />
                         </div>
                         <div className={styles.instructions}>

@@ -4,7 +4,7 @@
 
 /* Apply the styles to the login section */
 .section {
-    position: absolute;
+    position: relative;
     width: 95vw; /* Adjust the width to fit around 80-90% of the screen */
     height: 95vh;
     display: flex;
@@ -48,9 +48,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px;
-    border-radius: 4px;
+    flex-direction: column; /* Center content vertically and horizontally */
+    padding: 10px 10px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
   }
   
   /* Style the content inside the container */
@@ -77,7 +78,7 @@
     background: #333;
     border: none;
     outline: none;
-    padding: 15px 10px; /* Adjust padding */
+    padding: 15px 60px; /* Adjust padding */
     border-radius: 4px;
     color: #fff;
     font-weight: 500;
